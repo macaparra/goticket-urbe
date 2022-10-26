@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoTicket</title>
+    <link href="img/ticket.png" rel="icon" />
+    <link href="css/base.css" rel="stylesheet" />
+    <link href="css/registro.css" rel="stylesheet" />
+    <link href="css/normalize.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <style>
+      .banner-image {
+        background-image: url('img/banner02.jpg');
+        background-size: cover;
+      }
+    </style>
+</head>
+<body>
+  <div class="container-registro">
+    <header>REGISTRO</header>
+        <form onsubmit="return false;" class="formulario" id="formulario">
+            <div class="form first">
+                <div class="details personal">
+                    <span class="title text-center" style="color: #3BE16E;">BIENVENIDO</span>
+
+                    <div>
+                        <a href="/"><img src="img/logo.png" style="margin: auto; display: block; width: 20%; margin-bottom: 20px;" alt=""></a>
+                    </div>
+                    
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>NOMBRE DE USUARIO</label>
+                            <input type="text" placeholder="Ingresa tu nombre de usuario" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>CÉDULA, RIF O PASAPORTE</label>
+                            <input type="number" placeholder="Ingresa tu número de identificación" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>DIRECCIÓN</label>
+                            <input type="text" placeholder="Ingresa tu dirección" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>CORREO ELECTRÓNICO</label>
+                            <input type="email" placeholder="Ingresa tu dirección de correo electrónico" required id="email">
+                        </div>
+
+                        <div class="input-field">
+                            <label>NACIONALIDAD</label>
+                            <select required>
+                                <option disabled selected>Selecciona tu nacionalidad</option>
+                                <option>Venezolana</option>
+                                <option>Extranjera</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>NÚMERO TELEFÓNICO</label>
+                            <input type="number" placeholder="Ingresa tu número telefónico" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>CONTRASEÑA</label>
+                            <input type="password"  placeholder="Crea una contraseña" required id="password">
+                        </div>
+
+                        <div class="input-field">
+                            <label>CIUDAD</label>
+                            <input type="text" placeholder="Ingresa tu ciudad" required>
+                        </div>
+                        
+                        <div class="input-field">
+                            <label>GÉNERO</label>
+                            <select required>
+                                <option disabled selected>Selecciona tu nacionalidad</option>
+                                <option>Masculino</option>
+                                <option>Femenino</option>
+                                <option>Prefiero no especificar</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>CONFIRMAR CONTRASEÑA</label>
+                            <input type="password"  placeholder="Confirma la contraseña" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>FECHA DE NACIMIENTO</label>
+                            <input type="date" placeholder="Ingresa tu fecha de nacimiento" required>
+                        </div>
+
+                        <button class="nextBtn" type="submit">
+                            <span class="btnText">SIGUIENTE</span>
+                            <i class="uil uil-navigator"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="alert alert-danger" role="alert" id="error" style="display: none;"></div>
+            
+            <div class="alert alert-success" role="alert" id="success" style="display: none;"></div>
+        </form>
+        
+    </div>
+
+  <div
+    class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
+  </div>
+
+  <header class="hero">
+    <div class="hero__wave" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
+      style="height: 100%; width: 100%;">
+      <path d="M0.00,49.99 C150.00,150.00 349.20,-49.99 500.00,49.99 L500.00,150.00 L0.00,150.00 Z"
+      style="stroke: none; fill: #05113e;"></path>
+      </svg>
+    </div>
+  </header>
+
+  <main>
+
+  </main>
+
+  
+  <script src="js/register.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/f13e65e247.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
+
+</html>

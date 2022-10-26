@@ -1,0 +1,131 @@
+
+.container-detalle-evento{
+    padding: 2%;
+    margin-top: 78px;
+}
+
+.col1-titulo1{
+    font-size: 150%;
+    font-weight: 500;
+    color: #3BE16E;
+    text-align: center;
+}
+
+.col1-titulo2{
+    font-size: 250%;
+    font-weight: 700;
+    color: #ffffff;    
+    text-align: center;
+}
+
+.boton-vef, .boton-usd{
+    align-items: center;
+    border-radius: 13px;
+    margin-top: 5%;
+    margin-left: 2%;
+    margin-right: 2%;
+    border: none;
+    background: #f46fb1f4;
+    background-image: -webkit-linear-gradient(169deg, #5560ff 17%, #aa52a1 63%, #ff4343 100%);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 80%;
+    font-weight: 600;
+}
+
+button:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.col2-info{
+    margin-top: 5%;
+    padding: 10%;
+    background-color: #0d1f4596;
+    border-radius: 15%;
+    font-size: 75%;
+}
+
+.col2-info h2{
+    text-align: center;
+    justify-content: center;
+    padding-bottom: 8%;
+    color: white;
+}
+
+.col2-info p{
+    font-size: 150%;
+    font-weight: 400;
+    color: white;
+}
+
+.title {
+    color: #1cd554;
+}
+
+.col3-seatingchart{
+    padding-left: 10%;
+    padding-top: 5%;
+    margin-bottom: 3%;
+    font-size: 100%;
+    font-weight: bolder;
+    line-height: 110%;
+    color: white;
+}
+
+.col3-seats{
+    margin: 2%;
+    padding-left: 10%;
+    color: white;
+}
+
+.col3-seats span.grada {
+    background: #74B422;
+    border-radius: 5%;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    color: #ffffff;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 100%;
+    line-height: 350%;
+    margin-left: 8%;
+    text-align: center;
+    width: 50%; 
+}
+
+.col3-seats span.pista {
+    background: #E5285E;
+    border-radius: 5%;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    color: #ffffff;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 100%;
+    line-height: 350%;
+    margin-left: 8%;
+    text-align: center;
+    width: 50%;
+}
+
+.col3-seats span.vip {
+    background: #EA5E0F;
+    border-radius: 5%;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    color: #ffffff;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 100%;
+    line-height: 350%;
+    margin-left: 8%;
+    text-align: center;
+    width: 50%; 
+}
+
+.col3{
+    font-size: 110%;
+    font-weight: 600;
+}
