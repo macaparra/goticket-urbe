@@ -28,7 +28,7 @@
                 <div class="option-header">
                     <span style="color:#ffffffb3 ;">CORREO ELECTRÓNICO<span style="color:#ff4343 ;">*</span></span>
                 </div>
-                <form onsubmit="return false;" id="formulario">
+                <form onsubmit="return false;" id="form" class="formulario">
                     
                     <div class="input-box">
                         <input id="email" class="setemail" type="email" required placeholder="Ingresa tu correo" autocomplete="off"/>
@@ -54,11 +54,12 @@
                         <button type="submit">Iniciar Sesion</button>
                      </div>
 
-                    <div class="alert alert-danger" role="alert" id="error" style="display: none;"></div>
-
-                    <div class="alert alert-success" role="alert" id="success" style="display: none;"></div>
 
                 </form>
+
+                <div class="alert alert-danger" role="alert" id="error" style="display: none;"></div>
+
+                <div class="alert alert-success" role="alert" id="success" style="display: none;"></div>
                
                 <div class="loginlink">
                     <span>No tienes una cuenta <a href="">Registrate</a></span>

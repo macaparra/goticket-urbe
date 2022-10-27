@@ -1,5 +1,5 @@
 // Validaciones de Inicio de Sesion
-formulario.addEventListener("submit", () => {
+form.addEventListener("submit", () => {
     const login = {
         email: email.value,
         password: password.value
@@ -12,14 +12,14 @@ formulario.addEventListener("submit", () => {
         }
     }).then(res => res.json())
         .then(data => {
-            if(data.status == "error") {
-                success.style.display = "none"
-                error.style.display = "block"
-                error.innerText = data.error
-            } else{
-                error.style.display = "none"
+            if(data.status == "success") {
                 success.style.display = "block"
+                error.style.display = "none"
                 success.innerText = data.success
+            } else{
+                error.style.display = "block"
+                success.style.display = "none"
+                error.innerText = data.error
             }
             
         })

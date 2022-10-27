@@ -6,7 +6,7 @@ const router = express.Router();
 
 // Mostramos la salida POST de nuestros archivos
 router.post("/register", register)
-//router.post("/login", register)
+router.post("/login", login)
 //router.get("/logout", logout)
 
 module.exports = router;
