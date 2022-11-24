@@ -282,6 +282,15 @@ router.get(`/forgotPassword`, (req, res) => {
     res.sendFile("forgotPassword.html" , {root: "./public"});
 })
 
+//Backup
+router.get("/goticketbdd.sql", (req, res) => {
+    res.sendFile("goticketbdd.sql" , {root: "./backup"});
+})
+
+//Manual de usuario
+router.get("/manualUsuario.pdf", (req, res) => {
+    res.sendFile("manualUsuario.pdf" , {root: "./manuales"});
+})
 
 
 
