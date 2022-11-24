@@ -98,13 +98,14 @@ CREATE TABLE `comprapm` (
   `cantidad_asientos` int(4) NOT NULL,
   `monto` double(10,2) NOT NULL,
   `sevento` text NOT NULL,
+  `fecha_compra` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `comprapm`
 --
 
-INSERT INTO `comprapm` (`id`, `email`, `ncedula`, `cedula`, `banco`, `codetelefono`, `telefono`, `ubicacion`, `cantidad_asientos`, `monto`, `sevento`) VALUES
+INSERT INTO `comprapm` (`id`, `email`, `ncedula`, `cedula`, `banco`, `codetelefono`, `telefono`, `ubicacion`, `cantidad_asientos`, `monto`, `sevento`, `fecha_compra`) VALUES
 (36, 'carlosferreroberto@gmail.com', 'V', '28326446', 'Provincial', '+58', '424-6565200', 'General', 2, 1600.00, 'Los Mesoneros', '2022-11-23'),
 (37, 'carlosferreroberto@gmail.com', 'V', '28326446', 'BNC', '+58', '424-6565200', 'VIP', 2, 7000.00, 'Las Inmamables', '2022-11-23');
 
@@ -123,14 +124,14 @@ CREATE TABLE `compraz` (
   `cantidad_asientosz` int(4) NOT NULL,
   `monto` double(10,2) NOT NULL,
   `sevento` text NOT NULL,
-
+  `fecha_compra` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `compraz`
 --
 
-INSERT INTO `compraz` (`id`, `email`, `referencia`, `titular_cuenta`, `ubicacionz`, `cantidad_asientosz`, `monto`, `sevento`) VALUES
+INSERT INTO `compraz` (`id`, `email`, `referencia`, `titular_cuenta`, `ubicacionz`, `cantidad_asientosz`, `monto`, `sevento`, `fecha_compra`) VALUES
 (14, 'carlosferreroberto@gmail.com', '#dsadadassad', 'Carlos Ferrer', 'General', 2, 160.00, 'Guaco', '2022-11-23'),
 (15, 'carlosferreroberto@gmail.com', '#dsadadassad', 'Carlos Ferrer', 'General', 2, 160.00, 'Motherflowers', '2022-11-23');
 
@@ -175,13 +176,14 @@ CREATE TABLE `facturasbs` (
   `cantidad_asientos` int(4) NOT NULL,
   `monto` double(10,2) NOT NULL,
   `sevento` text NOT NULL,
+  `fecha_compra` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `facturasbs`
 --
 
-INSERT INTO `facturasbs` (`id`, `banco`, `ubicacion`, `cantidad_asientos`, `monto`, `sevento`) VALUES
+INSERT INTO `facturasbs` (`id`, `banco`, `ubicacion`, `cantidad_asientos`, `monto`, `sevento`, `fecha_compra`) VALUES
 (1, 'Provincial', 'General', 2, 1600.00, 'Los Mesoneros', '2022-11-23'),
 (2, 'BNC', 'VIP', 2, 7000.00, 'Las Inmamables', '2022-11-23');
 
@@ -197,14 +199,15 @@ CREATE TABLE `facturasusd` (
   `ubicacionz` text NOT NULL,
   `cantidad_asientosz` int(4) NOT NULL,
   `monto` double(10,2) NOT NULL,
-  `sevento` text NOT NULL
+  `sevento` text NOT NULL,
+  `fecha_compra` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `facturasusd`
 --
 
-INSERT INTO `facturasusd` (`id`, `referencia`, `ubicacionz`, `cantidad_asientosz`, `monto`, `sevento`) VALUES
+INSERT INTO `facturasusd` (`id`, `referencia`, `ubicacionz`, `cantidad_asientosz`, `monto`, `sevento`, `fecha_compra`) VALUES
 (2, '#dsadadassad', 'General', 2, 160.00, 'Motherflowers', '2022-11-23');
 
 --
