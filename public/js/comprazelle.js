@@ -1,4 +1,4 @@
-formulario6.addEventListener("submit", () => {
+formulario.addEventListener("submit", () => {
     const comprazelle = {
         email: email.value,
         referencia: referencia.value,

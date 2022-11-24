@@ -92,109 +92,99 @@
       </div>
     </div>
   </nav>
-	<main>
+  <main>
 		<div class="container-registro">
-
-			<header>INGRESA TUS DATOS ZELLE</header>
+      <header>INGRESA TUS DATOS ZELLE</header>
 	
 			<div>
 				<a href="/"><img src="img/logo.png" style="margin: auto; display: block; width: 120px; margin-top: 10px; margin-bottom: 20px;" alt=""></a>
 			</div>
+      <form onsubmit="return false;" class="formulario" id="formulario">
 
-			<form onsubmit="return false;" class="formulario" id="formulario6">
-
-                <!-- Grupo: Correo Electronico -->
-				<div class="formulario__grupo" id="grupo__correo">
-					<label for="correo" class="formulario__label">CORREO ELECTRÓNICO</label>
+        <div>
+           <!-- Grupo: Correo Electronico -->
+        <div class="formulario__grupo" id="grupo__correo">
+          <label for="correo" class="formulario__label">CORREO ELECTRÓNICO</label>
 					<div class="formulario__grupo-input">
-						<input style="text-transform: lowercase ;" type="email" class="formulario__input" name="correo" id="email" placeholder="Ingresa tu dirección de correo electrónico" required>
+						<input style="text-transform: lowercase ;"type="email" class="formulario__input" name="correo" id="email" placeholder="Ingresa tu dirección de correo electrónico" required>
 						<i class="formulario__validacion-estado fas fa-times-circle"></i>
 					</div>
 					<p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
+        </div>
 
-                    <!-- Grupo: Referencia -->
-                    <div class="formulario__grupo" id="referencia2">
-                        <label for="ciudad" class="formulario__label">REFERENCIA</label>
-                        <div class="formulario__grupo-input">
-                            <input type="text" class="formulario__input" name="referencia" id="referencia" placeholder="Ingresa Referencia" required>
-                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                        </div>
-                        <p class="formulario__input-error">La ciudad no puede tener más de 20 carácateres.</p>
-                    </div>
-
-                    
-                    <!-- Grupo: Titular-->
-                    <div class="formulario__grupo" id="titular">
-                        <label for="titular" class="formulario__label">TITULAR DE LA CUENTA</label>
-                        <div class="formulario__grupo-input">
-                            <input type="text" class="formulario__input" name="titular_cuenta" id="titular_cuenta" placeholder="Ingresa tu nombre del titular de la cuenta" required>
-                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                        </div>
-                        <p class="formulario__input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
-
-                    </div>
-				</div>
-
-  
+        
+        <!-- Grupo: Titular-->
+        <div class="formulario__grupo" id="titular">
+          <label for="titular" class="formulario__label">TITULAR DE LA CUENTA</label>
+          <div class="formulario__grupo-input">
+              <input type="text" class="formulario__input" name="titular_cuenta" id="titular_cuenta" placeholder="Ingresa tu nombre del titular de la cuenta" required>
+              <i class="formulario__validacion-estado fas fa-times-circle"></i>
+          </div>
+          <p class="formulario__input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
+        </div>
 
 
-                
-                    <!-- Grupo: Ubicacion -->
-                    <div class="formulario__grupo" id="ubicacion">
-                        <label for="ubicacion" class="formulario__label">UBICACION</label>
-                        <div class="formulario__grupo-select">
-                            <select required class="formulario__select" id="ubicacionz" name="ubicacionz" onclick="getSelectedValue2()">
-                                <option value="" disabled selected>Ubicacion</option>
-                                <option value="General">General Gradas - 80$</option>
-                                <option value="Pista">Gerenal Pista - 100$</option>
-                                <option value="VIP">Platinum VIP - 350$</option>
-                            </select>
-                        </div>
 
-                      <!-- Grupo: Cantidad de Asientos -->
-                        <div class="formulario__grupo" id="asientos">
-                            <label for="ubicacion" class="formulario__label">CANTIDAD DE ASIENTOS</label>
-                            <input oninput="getSelectedValue2()" type="number" min="1" max="230" class="formulario__input_cedula" name="cantidad_asientosz" id="cantidad_asientosz" placeholder="Ingrese la cantidad de asientos que desee" required>
-                                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                        </div>
-                        
-                        <!-- Grupo: Nombre Evento -->
-                        <div class="formulario__grupo" id="evento">
-                          <label for="ubicacion4" class="formulario__label">EVENTO SELECCIONADO</label>
-                          <input type="text" readonly class="formulario__input_cedula" name="sevento" value="Motherflowers" id="sevento" placeholder="Bad Bunny" required>
-                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                      </div>
 
-                        
+        <!-- Grupo: Referencia -->
+        <div class="formulario__grupo" id="referencia2">
+          <label for="ciudad" class="formulario__label">REFERENCIA</label>
+          <div class="formulario__grupo-input">
+              <input type="text" class="formulario__input" name="referencia" id="referencia" placeholder="Ingresa Referencia" required>
+              <i class="formulario__validacion-estado fas fa-times-circle"></i>
+          </div>
+          <p class="formulario__input-error">La ciudad no puede tener más de 20 carácateres.</p>
+        </div>
 
-                        <input style="display: none;" type="number" readonly class="formulario__input_cedula" name="monto" value="" id="monto" placeholder="Bad Bunny">
+        </div>
+       
+        
 
-                        <div class="formulario__grupo formulario__grupo-btn-enviar">
-                            <button type="submit" id="btn" class="formulario__btn">PAGAR CON ZELLE</button>
+
+        <!-- Grupo: Ubicacion -->
+        <div class="formulario__grupo" id="ubicacion">
+          <label for="ubicacion" class="formulario__label">UBICACION</label>
+          <div class="formulario__grupo-select">
+            <select required class="formulario__select" id="ubicacionz" name="ubicacionz" onclick="getSelectedValue2()">
+              <option value="" disabled selected>Ubicacion</option>
+              <option value="General">General Gradas - 80$</option>
+              <option value="Pista">Gerenal Pista - 100$</option>
+              <option value="VIP">Platinum VIP - 350$</option>
+            </select>
+        </div>
+
+        <!-- Grupo: Cantidad de Asientos -->
+        <div class="formulario__grupo" id="asientos">
+          <label for="ubicacion" class="formulario__label">CANTIDAD DE ASIENTOS</label>
+          <input oninput="getSelectedValue2()" type="number" min="1" max="230" class="formulario__input_cedula" name="cantidad_asientosz" id="cantidad_asientosz" placeholder="Ingrese la cantidad de asientos que desee" required>
+          <i class="formulario__validacion-estado fas fa-times-circle"></i>
+      </div>
+
+        <!-- Grupo: Nombre Evento -->
+        <div class="formulario__grupo" id="evento">
+          <label for="ubicacion4" class="formulario__label">EVENTO SELECCIONADO</label>
+          <input type="text" readonly class="formulario__input_cedula" name="sevento" value="Motherflowers" id="sevento" placeholder="Bad Bunny" required>
+          <i class="formulario__validacion-estado fas fa-times-circle"></i>
+        </div>
+
     
-                            <div>
-                              <h1 class="compra">TOTAL DE COMPRA: <span name ="montot" id="montot" class="total">0</span></h1>
-                          </div>
-                      </div>
-    
-				    </div>
 
-	
+        <input style="display: none;" type="number" readonly class="formulario__input_cedula" name="monto" value="" id="monto" placeholder="Bad Bunny">
+
+        <div class="formulario__grupo formulario__grupo-btn-enviar">
+            <button type="submit" id="btn" class="formulario__btn">PAGAR CON ZELLE</button>
+
+            <div>
+              <h1 class="compra">TOTAL DE COMPRA: <span name ="montot" id="montot" class="total">0</span></h1>
+          </div>
+        </div>
+
 			</form>
+      <div class="alert alert-danger" role="alert" id="error" style="display: none;"></div>
 
-            <div class="alert alert-danger" role="alert" id="error" style="display: none;"></div>
-
-            <div class="alert alert-success" role="alert" id="success" style="display: none;"></div>
-               
-
+      <div class="alert alert-success" role="alert" id="success" style="display: none;"></div>
 		</div>
-
-		<div
-			class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
-		</div>
-
 	</main>
-
 	<script src="js/script.js"></script>
     <script src="js/comprazelle.js"></script>
     <script src="js/navbarscroll.js"></script>
