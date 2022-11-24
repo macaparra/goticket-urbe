@@ -98,7 +98,7 @@ CREATE TABLE `comprapm` (
   `cantidad_asientos` int(4) NOT NULL,
   `monto` double(10,2) NOT NULL,
   `sevento` text NOT NULL,
-  `fecha_compra` date NOT NULL DEFAULT current_timestamp()
+  `fecha_compra` date NOT NULL 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -124,7 +124,7 @@ CREATE TABLE `compraz` (
   `cantidad_asientosz` int(4) NOT NULL,
   `monto` double(10,2) NOT NULL,
   `sevento` text NOT NULL,
-  `fecha_compra` date NOT NULL DEFAULT current_timestamp()
+  `fecha_compra` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -176,7 +176,7 @@ CREATE TABLE `facturasbs` (
   `cantidad_asientos` int(4) NOT NULL,
   `monto` double(10,2) NOT NULL,
   `sevento` text NOT NULL,
-  `fecha_compra` date NOT NULL DEFAULT current_timestamp()
+  `fecha_compra` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -200,7 +200,7 @@ CREATE TABLE `facturasusd` (
   `cantidad_asientosz` int(4) NOT NULL,
   `monto` double(10,2) NOT NULL,
   `sevento` text NOT NULL,
-  `fecha_compra` date NOT NULL DEFAULT current_timestamp()
+  `fecha_compra` date NOT NULL 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
