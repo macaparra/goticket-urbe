@@ -24,8 +24,8 @@ const comprazelle = async (req, res) =>{
                     const token = jwt.sign( {id: result5[0].id} , process.env.JWT_SECRET , {
                         expiresIn: '10m',
                     })
-                    //const verificationLink = `http://localhost:4000/changePassword/${token}`
-                    const verificationLink = `http://localhost:4000/forgotPassword`;
+                    //const verificationLink = `https://goticket-urbe-production.up.railway.app/changePassword/${token}`
+                    const verificationLink = `https://goticket-urbe-production.up.railway.app/forgotPassword`;
     
                     if(`${sevento}`=="Bad Bunny"){
     

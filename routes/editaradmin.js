@@ -64,7 +64,7 @@ router.post("/action", async function(req, res, next){
                         if(result4[0]) return res.json({ status: "error", error: "El telefono ingresado ya ha sido registrado" })
 						else {
 							db.query('INSERT INTO administrador SET ?', { email: email, password: password, nombre_usuario_adm: nombre_usuario_adm, cedula_adm: cedula_adm, telefono_adm: telefono_adm, fecha_nacimiento_adm: fecha_nacimiento_adm}, async function(error, data){
-                                const verificationLink = `http://localhost:4000/login`;
+                                const verificationLink = `https://goticket-urbe-production.up.railway.app/login`;
                                 await transporter.sendMail({
                 
                                     from: '"Bienvenido a bordo" <goticketve@gmail.com>', // sender address

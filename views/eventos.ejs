@@ -160,7 +160,7 @@ $(document).ready(function(){
     function load_data()
     {
         $.ajax({
-            url:"http://localhost:4000/eventos/action",
+            url:"/eventos/action",
             method:"POST",
             data:{action:'fetch'},
             dataType : "JSON",
@@ -218,7 +218,7 @@ $(document).ready(function(){
         event.preventDefault();
 
         $.ajax({
-            url:"http://localhost:4000/eventos/action",
+            url:"/eventos/action",
             method:"POST",
             data:$('#eventos').serialize(),
             dataType:"JSON",
@@ -270,7 +270,7 @@ $(document).ready(function(){
         $('#password').attr('disabled', 'disabled'); //!!
 
         $.ajax({
-            url:"http://localhost:4000/eventos/action",
+            url:"/eventos/action",
             method:"POST",
             data:{id:id, action:'fetch_single'},
             dataType:"JSON",
@@ -300,7 +300,7 @@ $(document).ready(function(){
         if(confirm("Estas seguro que deseas eliminar este registro?"))
         {
             $.ajax({
-                url:"http://localhost:4000/eventos/action",
+                url:"/eventos/action",
                 method:"POST",
                 data:{action:'delete', id:id},
                 dataType:"JSON",
