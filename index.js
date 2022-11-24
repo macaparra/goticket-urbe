@@ -10,7 +10,13 @@ const db = require("./routes/db-config");
 const app = express();
 const cookie = require("cookie-parser");
 const path = require('path');
-
+var sampleDataRouter = require('./routes/editarcliente');
+var eventosDataRouter = require('./routes/eventos');
+var editaradminDataRouter = require('./routes/editaradmin');
+var facturasbsDataRouter = require('./routes/facturasbs');
+var facturasusdDataRouter = require('./routes/facturasusd');
+var comprasbsDataRouter = require('./routes/comprasbs');
+var comprasusdDataRouter = require('./routes/comprasusd');
 
 // constante para indicar que se utilizara el puerto 5000 o uno predeterminado
 const PORT = process.env.PORT || 4000;
@@ -30,6 +36,7 @@ app.set("views", "./views");
 // llamamos a cookie-parser y express.json
 app.use(cookie());
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 
 // Mostramos un mensaje por consola de que hemos iniciado la base de datos (Para efectos prácticos)
@@ -41,9 +48,24 @@ db.connect((err) => {
 // Solicitamos acceso a las rutas
 app.use("/" , require("./routes/pages"))
 
-// 
+app.use('/editarcliente', sampleDataRouter);
+
+app.use('/eventos', eventosDataRouter);
+
+app.use('/editaradmin', editaradminDataRouter);
+
+app.use('/facturasbs', facturasbsDataRouter)
+
+app.use('/facturasusd', facturasusdDataRouter)
+
+app.use('/comprasbs', comprasbsDataRouter)
+
+app.use('/comprasusd', comprasusdDataRouter)
+
+// Indicamos donde estaran las rutas de las API / endpoints
 app.use("/api", require("./controllers/auth"))
 
 // solicitamos iniciar en el puerto ya establecido en la constante PORT
 app.listen(PORT)
+
 

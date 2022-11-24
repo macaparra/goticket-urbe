@@ -8,15 +8,18 @@
     <link rel="stylesheet" href="css/styles.css">
     <link href="img/ticket.png" rel="icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <style type="text/css"> 
+        .setemail { text-transform: lowercase;}
+    </style>
 </head>
-<body>
+<body style="background-image: url(img/banner02.jpg);background-size: cover;">
     <header>
 
     </header>
     
     <!-- Main Container -->
     <div class="container">
+
 
         <!-- Login Container -->
         <div class="login-container">
@@ -45,11 +48,11 @@
                     </div>
 
                     <div class="options">
-                        <span><i class="fa-regular fa-circle"></i> Guardar Contraseña</span>
-                        <span><a href="#">Recuperar Contraseña</a></span>
+                        <span class="home2"><a class="home" href="/"><i class="fa-solid fa-house" id="casa"></i>    Volver al Inicio</a></span>
+                        <span><a class="restorep" href="/restorep">Recuperar Contraseña</a></span>
                     </div>
                     
-
+                    
                     <div class="input-box">
                         <button type="submit">Iniciar Sesion</button>
                      </div>
@@ -60,9 +63,11 @@
                 <div class="alert alert-danger" role="alert" id="error" style="display: none;"></div>
 
                 <div class="alert alert-success" role="alert" id="success" style="display: none;"></div>
+
+                <div class="alert alert-success" role="alert" id="success2" style="display: none;"></div>
                
                 <div class="loginlink">
-                    <span>No tienes una cuenta <a href="">Registrate</a></span>
+                    <span>No tienes una cuenta <a href="/register">Registrate</a></span>
                 </div>
                 <div class="SocialMedia">
                     <ul>

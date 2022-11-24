@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Contraseña-GoTicket</title>
+    <link href="img/ticket.png" rel="icon">
+    <link rel="stylesheet" href="css/restore.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+</head>
+<body>
+    <div class="login-container">
+        <div class="section-header">
+            <span>Ingresa tu Correo</span>
+            <h2>Portal de Recuperación</h2>
+        </div>
+        <div class="section-body">
+            <div class="option-header">
+                <span style="color:#ffffffb3 ;">CORREO ELECTRÓNICO<span style="color:#ff4343 ;">*</span></span>
+            </div>
+            <form onsubmit="return false;" id="form2" class="formulario">
+                
+                <div class="input-box">
+                    <input style="text-transform: lowercase ;"  id="email" class="setemail" type="email" required placeholder="Ingresa tu correo" autocomplete="off"/>
+                    <div class="underline"></div>
+                </div>
+
+                
+                
+                <div class="input-box">
+                    <button type="submit">Enviar</button>
+                 </div>
+
+
+            </form>
+
+            <div class="alert alert-danger" role="alert" id="error" style="display: none;"></div>
+
+            <div class="alert alert-success" role="alert" id="success" style="display: none;"></div>
+
+            <div class="loginlink">
+                <span>No tienes una cuenta <a href="/register">Registrate</a></span>
+            </div>
+            <div class="SocialMedia">
+                <ul>
+                    <li>
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+        
+    </div>
+    <script type="module" src="js/restorep.js" ></script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    display: grid;
+    height: 100vh;
+    width: 100%;
+    place-items: center;
+    background-image: url(/img/account-bg.jpg);
+    background-size: cover;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.login-container{
+    background-color: rgba(68, 90, 153, 0.051);
+    box-shadow: 0px 0px 29.4px 0.6px rgb(0 0 0 / 50%);
+    max-width: 400px;
+    width: 100%;
+    padding: 25px 30px;
+}
+
+.section-header{
+    text-align: center;
+    margin: 20px 0 10px 0;
+}
+
+div.section-header span{
+    font-size: 24px;
+    color: #31d7a9;
+}
+
+div.section-header h2{
+    font-size: 28px;
+    color: #fff;
+}
+
+.login-container form .input-box{
+    width: 100%;
+    height: 45px;
+    margin-top: 25px;
+    position: relative;
+}
+
+.login-container form .input-box .validations{
+    display: inline-block;
+
+}
+
+.login-container form .input-box input.setemail,.login-container form .input-box input.setpassword{
+    color: #fff;
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 12px;
+    background-color: transparent;
+}
+
+
+.option-header{
+    font-size: 13px;
+    position: relative;
+    top: 25px;
+    display: inline-block;
+}
+
+
+.login-container form .underline:before{
+    position: absolute;
+    content: '';
+    height: 0.5px;
+    width: 100%;
+    background:rgba(204, 204, 204, 0.4);
+    left: 0;
+    bottom: 0;
+}
+
+.login-container form .underline:after{
+    position: absolute;
+    content: '';
+    height: 0.5px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background: #ff4343;
+    transform: scaleX(0);
+    transition: all 0.3 ease;
+}
+
+
+.login-container form .input-box input:focus ~ .underline:after, .login-container form .input-box input:valid{
+    transform: scaleX(1);
+} 
+
+
+
+.login-container form .input-box button[type="submit"]{
+    display: flex;
+    align-items: center;
+    color: #fff;
+    border: none;
+    outline: none;
+    background-image: -webkit-linear-gradient(169deg, #5560ff 17%, #aa52a1 63%, #ff4343 100%);
+    -webkit-transition: all ease 0.3s;
+    transition: all ease 0.3s;
+    border-radius: 30px;
+    width: auto;
+    padding: 0 20px;
+    height: 30px;
+    text-transform: uppercase;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+
+.login-container form .input-box button[type="submit"]:hover {
+    transform: scale(1.1);
+}
+
+        
+
+div.options{
+    margin-top: 5px;
+}
+
+div.options span{
+    color: #6c8cfa;
+    font-size: 11px;
+}
+
+div.options span a{
+    display: inline-block;
+    text-decoration: none;
+    color: #6c8cfa;
+    font-size: 11px;
+    margin-left: 35px;
+}
+
+div.options span a:hover{
+    text-decoration:underline;
+    color: #6c8cfa;
+    font-size: 11px;
+}
+
+.loginlink{
+    font-size: 12px;
+    text-align: center;
+}
+
+.loginlink span{
+    color: #fff;
+}
+
+.loginlink a{
+    text-decoration: none;
+    color: #31d7a9;
+}
+
+.loginlink a:hover{
+    text-decoration: underline;
+}
+
+.SocialMedia{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.SocialMedia li{
+    margin-top: 10px;
+    margin-right: 8px;
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-size: 14px;
+    text-decoration: none;
+    list-style: none;
+}
+
+.SocialMedia a{
+    text-decoration: none;
+    color: #fff;
+    transition: all ease 0.3s;
+}
+
+
+.SocialMedia li:hover{
+    border-color: #001232;
+    background-image: -webkit-linear-gradient(169deg, #5560ff 17%, #aa52a1 63%, #ff4343 100%);
+    transform: scaleX(1);
+}
+
+.alert-danger {
+    padding: 20px;
+    background-color: #f44336; /* Red */
+    color: white;
+    margin-bottom: 15px;
+}  
+
+.alert-success {
+    padding: 20px;
+    background-color: #04aa6d; /* Red */
+    color: white;
+    margin-bottom: 15px;
+}  
+
+/* The close button */

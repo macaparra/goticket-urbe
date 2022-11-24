@@ -1,0 +1,322 @@
+/* Registro */ 
+
+* {
+	box-sizing: border-box;
+}
+
+html{
+    background-color: #001232;
+}
+
+body {
+    letter-spacing: 0.8px;
+	align-items: center;
+    justify-content: center;
+}
+
+.compra{
+    font-size: 23px;
+    color: #3be16e;
+}
+
+.total{
+    color: white;
+}
+
+.container-registro{
+	z-index: 1000;
+    position: absolute;
+    width: 80%;
+    border-radius: 40px;
+    padding: 40px;
+    background-color: rgba(13, 17, 53, 0.338);
+    box-shadow: 5px 10px 15px 5px rgba(0, 0, 0, 0.205);
+	left: 10%;
+	top: 34%;
+}
+
+.container-registro header{
+    position: relative;
+    font-size: 150%;
+    font-weight: 600;
+    color: rgb(224, 224, 224);
+}
+
+.container-registro header::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 3px;
+    width: 27px;
+    border-radius: 4px;
+    background-color: #4070f4;
+}
+
+.formulario {
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    gap: 11px;
+    margin-top: 31px;
+    min-height: 468px;
+    overflow: hidden;
+}
+
+.formulario__label {
+	font-size: 70%;
+	display: block;
+	font-weight: 700;
+	padding: 10px 10px 5px 7px;
+	cursor: pointer;
+	color: #f7f7f7;
+}
+
+.formulario__grupo-input, .formulario__grupo-select, .formulario__grupo-input-telefono {
+	position: relative;
+}
+
+.formulario__grupo select,
+.formulario__grupo input[type="date"]{
+    color: #a8a8a8;
+}
+
+.formulario__input, .formulario__select{
+	width: 95%;
+	outline: none;
+    font-size: 80%;
+    font-weight: 400;
+    color: rgb(242, 242, 242);
+    border-radius: 20px;
+    border: 1px solid rgba(170, 170, 170, 0.29);
+    background-color: rgba(255, 255, 255, 0);
+	height: 45px;
+	line-height: 45px;
+	padding: 0 10px 0 10px;
+	transition: .3s ease all;
+}
+
+.formulario__label_cedula {
+	font-size: 70%;
+	display: block;
+	font-weight: 700;
+	padding: 10px 10px 5px 7px;
+	cursor: pointer;
+	color: #f7f7f7;
+}
+
+.formulario__input_cedula{
+	width: 74%;
+	outline: none;
+    font-size: 80%;
+    font-weight: 400;
+    color: rgb(242, 242, 242);
+    border-radius: 20px;
+    border: 1px solid rgba(170, 170, 170, 0.29);
+    background-color: rgba(255, 255, 255, 0);
+	height: 45px;
+	line-height: 45px;
+	padding: 0 10px 0 10px;
+	transition: .3s ease all;
+}
+
+.formulario__select_cedula{
+	width: 20%;
+	outline: none;
+    font-size: 80%;
+    font-weight: 400;
+    color: rgb(242, 242, 242);
+    border-radius: 20px;
+    border: 1px solid rgba(170, 170, 170, 0.29);
+    background-color: rgba(255, 255, 255, 0);
+	height: 45px;
+	line-height: 45px;
+	padding: 0 10px 0 10px;
+	transition: .3s ease all;
+	text-align: center;
+}
+
+.formulario__label-telefono {
+	font-size: 70%;
+	display: block;
+	font-weight: 700;
+	padding: 10px 10px 5px 7px;
+	cursor: pointer;
+	color: #f7f7f7;
+}
+
+.formulario__input_telefono {
+	width: 74%;
+	outline: none;
+    font-size: 80%;
+    font-weight: 400;
+    color: rgb(242, 242, 242);
+    border-radius: 20px;
+    border: 1px solid rgba(170, 170, 170, 0.29);
+    background-color: rgba(255, 255, 255, 0);
+	height: 45px;
+	line-height: 45px;
+	padding: 0 10px 0 10px;
+	transition: .3s ease all;
+}
+
+.formulario__select_telefono {
+	width: 20%;
+	outline: none;
+    font-size: 80%;
+    font-weight: 400;
+    color: rgb(242, 242, 242);
+    border-radius: 20px;
+    border: 1px solid rgba(170, 170, 170, 0.29);
+    background-color: rgba(255, 255, 255, 0);
+	height: 45px;
+	line-height: 45px;
+	padding: 0 10px 0 10px;
+	transition: .3s ease all;
+	text-align: center;
+}
+
+
+.formulario__input:focus, .formulario__select:focus {
+	border: 3px solid #0075FF;
+	outline: none;
+	box-shadow: 3px 0px 30px rgba(163,163,163, 0.4);
+}
+
+
+.formulario__input-error {
+	font-size: 70%;
+	margin-top: 5px;
+	margin-bottom: 0;
+	display: none;
+	color: #d1d1d1;
+}
+
+.formulario__input-error-activo {
+	display: block;
+}
+
+.formulario__validacion-estado {
+	position: absolute;
+	right: 35px;
+	bottom: 14px;
+	z-index: 100;
+	font-size: 16px;
+	opacity: 0;
+}
+
+.formulario__checkbox {
+	margin-right: 10px;
+}
+
+.formulario__mensaje {
+	height: 45px;
+    margin-top: 10px;
+	line-height: 45px;
+	background: #F66060;
+	padding: 0 15px;
+	border-radius: 20px;
+	display: none;
+}
+
+.formulario__mensaje-activo {
+	display: block;
+}
+
+.formulario__mensaje p {
+	margin: 0;
+}
+
+.formulario__grupo-btn-enviar {
+	display: flex;
+    flex-direction: column-reverse;
+	align-items: center;
+    margin-top: 72px;
+}
+
+.formulario__btn {
+	-webkit-transition: all ease 0.3s;
+    transition: all ease 0.3s;
+	margin-right: 5px;
+    border-radius: 30px;
+    margin-top: 8%;
+    margin-bottom: 10%;
+    margin-left: 5px;
+	width: 70%;
+    font-weight: bolder;
+    font-size: 90%;
+}
+
+button{
+    border: none;
+    background:#e94598;
+    background-image: linear-gradient(0deg, #e94598 12%, #b380df 68%);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 15px;
+}
+
+.formulario__btn:hover {
+    background-image: linear-gradient(0deg, #e6358e 12%, #aa6de0 68%);
+	transform: scale(1.1);
+    cursor: pointer;
+}
+
+.formulario__mensaje-exito {
+	font-size: 14px;
+	color: #119200;
+	display: none;
+}
+
+.formulario__mensaje-exito-activo {
+	display: block;
+}
+
+/* ----- -----  Estilos para Validacion ----- ----- */
+.formulario__grupo-correcto .formulario__validacion-estado {
+	color: #1ed12d;
+	opacity: 1;
+}
+
+.formulario__grupo-incorrecto .formulario__label {
+	color: #bb2929;
+}
+
+.formulario__grupo-incorrecto .formulario__validacion-estado {
+	color: #bb2929;
+	opacity: 1;
+}
+
+.formulario__grupo-incorrecto .formulario__input {
+	border: 3px solid #bb2929;
+}
+
+
+/* ----- -----  Mediaqueries ----- ----- */
+@media screen and (max-width: 800px) {
+	.formulario {
+		grid-template-columns: 1fr;
+	}
+
+	.formulario__grupo-terminos, 
+	.formulario__mensaje,
+	.formulario__grupo-btn-enviar {
+		grid-column: 1;
+	}
+
+	.formulario__btn {
+		width: 100%;
+	}
+}
+
+.formulario__grupo-incorrecto .formulario__validacion-estado {
+    color: #bb2929;
+    opacity: 1;
+    font-size: 0;
+}
+
+.formulario__grupo-correcto .formulario__validacion-estado {
+    color: #1ed12d;
+    opacity: 1;
+    font-size: 0;
+}

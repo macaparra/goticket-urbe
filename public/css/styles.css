@@ -16,11 +16,15 @@ html,body{
     font-family: 'Open Sans', sans-serif;
 }
 
+.container {
+    position: relative;
+    top: -25px;
+}
 
 .login-container{
     background-color: rgba(68, 90, 153, 0.051);
     box-shadow: 0px 0px 29.4px 0.6px rgb(0 0 0 / 50%);
-    max-width: 450px;
+    max-width: 400px;
     width: 100%;
     padding: 25px 30px;
 }
@@ -102,6 +106,7 @@ div.section-header h2{
 
 .login-container form .input-box button[type="submit"]{
     display: flex;
+    align-items: center;
     color: #fff;
     border: none;
     outline: none;
@@ -118,6 +123,10 @@ div.section-header h2{
 }
 
 
+.login-container form .input-box button[type="submit"]:hover {
+    transform: scale(1.1);
+}
+
         
 
 div.options{
@@ -129,8 +138,28 @@ div.options span{
     font-size: 11px;
 }
 
-div.options span a{
+div.options span a.restorep{
     display: inline-block;
+    text-decoration: none;
+    color: #6c8cfa;
+    font-size: 11px;
+    margin-left: 35px;
+}
+
+div.options span a.home{
+    display: inline-block;
+    position: relative;
+    left: -35px;
+    text-decoration: none;
+    color: #6c8cfa;
+    font-size: 11px;
+    margin-left: 35px;
+}
+
+div.options span a.home{
+    display: inline-block;
+    position: relative;
+    left: -35px;
     text-decoration: none;
     color: #6c8cfa;
     font-size: 11px;
@@ -196,3 +225,19 @@ div.options span a:hover{
     background-image: -webkit-linear-gradient(169deg, #5560ff 17%, #aa52a1 63%, #ff4343 100%);
     transform: scaleX(1);
 }
+
+.alert-danger {
+    padding: 20px;
+    background-color: #f44336; /* Red */
+    color: white;
+    margin-bottom: 15px;
+}  
+
+.alert-success {
+    padding: 20px;
+    background-color: #04aa6d; /* Red */
+    color: white;
+    margin-bottom: 15px;
+}  
+
+/* The close button */

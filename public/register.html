@@ -1,137 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GoTicket</title>
-    <link href="img/ticket.png" rel="icon" />
-    <link href="css/base.css" rel="stylesheet" />
-    <link href="css/registro.css" rel="stylesheet" />
-    <link href="css/normalize.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <style>
-      .banner-image {
-        background-image: url('img/banner02.jpg');
-        background-size: cover;
-      }
-    </style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>GoTicket - Registro</title>
+	<link href="img/ticket.png" rel="icon"/>
+	<link href="css/registro.css"rel="stylesheet"/>
+    <link href="css/normalize.css" rel="stylesheet"/>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    
+	<style>
+		.banner-image {
+		  background-image: url(img/banner02.jpg);
+		  background-size: cover;
+		}
+	</style>
+	
 </head>
 <body>
-  <div class="container-registro">
-    <header>REGISTRO</header>
-        <form onsubmit="return false;" class="formulario" id="formulario">
-            <div class="form first">
-                <div class="details personal">
-                    <span class="title text-center" style="color: #3BE16E;">BIENVENIDO</span>
+	<main>
+		<div class="container-registro">
 
-                    <div>
-                        <a href="/"><img src="img/logo.png" style="margin: auto; display: block; width: 20%; margin-bottom: 20px;" alt=""></a>
-                    </div>
-                    
-                    <div class="fields">
-                        <div class="input-field">
-                            <label>NOMBRE DE USUARIO</label>
-                            <input type="text" placeholder="Ingresa tu nombre de usuario" required>
-                        </div>
+			<header>REGISTRO</header>
+	
+			<div>
+				<a href="/"><img src="img/logo.png" style="margin: auto; display: block; width: 120px; margin-top: 10px; margin-bottom: 20px;" alt=""></a>
+			</div>
 
-                        <div class="input-field">
-                            <label>CÉDULA, RIF O PASAPORTE</label>
-                            <input type="number" placeholder="Ingresa tu número de identificación" required>
-                        </div>
+			<form onsubmit="return false;" class="formulario" id="formulario">
+				
+				<!-- Grupo: Nombre de Usuario -->
+				<div class="formulario__grupo" id="grupo__nombre">
+					<label for="nombre" class="formulario__label">NOMBRE DE USUARIO</label>
+					<div class="formulario__grupo-input">
+						<input style="text-transform:lowercase ;" type="text" class="formulario__input" name="nombre" id="username" placeholder="Ingresa tu nombre de usuario" required>
+						<i class="formulario__validacion-estado fas fa-times-circle"></i>
+					</div>
+					<p class="formulario__input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener números, letras y guión bajo.</p>
+				</div>
 
-                        <div class="input-field">
-                            <label>DIRECCIÓN</label>
-                            <input type="text" placeholder="Ingresa tu dirección" required>
-                        </div>
+				<!-- Grupo: Número de identificación -->
+				<div class="formulario__grupo" id="grupo__cedula">
+					<label for="cedula" class="formulario__label_cedula">CÉDULA O RIF</label>
+					<div class="formulario__grupo-input-cedula">
+						<select class="formulario__select_cedula" required id="ncedula" onchange="">
+							<option value="" disabled selected></option>
+							<option value="V">V -</option> 
+							<option value="E">E -</option>
+							<option value="J">J -</option>
+						</select>
+						<input type="text" class="formulario__input_cedula" name="cedula" id="cedula" placeholder="Ingresa tu número de identificación" required>
+						<i class="formulario__validacion-estado fas fa-times-circle"></i>
+					</div>
+					<p class="formulario__input-error">La identificacion sólo contiene números debe tener máximo 8 carácteres.</p>
+				</div>
 
-                        <div class="input-field">
-                            <label>CORREO ELECTRÓNICO</label>
-                            <input type="email" placeholder="Ingresa tu dirección de correo electrónico" required id="email">
-                        </div>
+				<!-- Grupo: Dirección -->
+				<div class="formulario__grupo" id="grupo__direccion">
+					<label for="direccion" class="formulario__label">DIRECCIÓN</label>
+					<div class="formulario__grupo-input">
+						<input style="text-transform: lowercase ;" type="text" class="formulario__input" name="direccion" id="direccion" placeholder="Ingresa la dirección dónde vives" required>
+						<i class="formulario__validacion-estado fas fa-times-circle"></i>
+					</div>
+					<p class="formulario__input-error">La dirección no puede contener más de 30 carácteres.</p>
+				</div>
 
-                        <div class="input-field">
-                            <label>NACIONALIDAD</label>
-                            <select required>
-                                <option disabled selected>Selecciona tu nacionalidad</option>
-                                <option>Venezolana</option>
-                                <option>Extranjera</option>
-                            </select>
-                        </div>
+				<!-- Grupo: Correo Electronico -->
+				<div class="formulario__grupo" id="grupo__correo">
+					<label for="correo" class="formulario__label">CORREO ELECTRÓNICO</label>
+					<div class="formulario__grupo-input">
+						<input style="text-transform: lowercase ;" type="email" class="formulario__input" name="correo" id="email" placeholder="Ingresa tu dirección de correo electrónico" required>
+						<i class="formulario__validacion-estado fas fa-times-circle"></i>
+					</div>
+					<p class="formulario__input-error">El correo solo puede contener letras, números, puntos, guiones y guión bajo.</p>
+				</div>
 
-                        <div class="input-field">
-                            <label>NÚMERO TELEFÓNICO</label>
-                            <input type="number" placeholder="Ingresa tu número telefónico" required>
-                        </div>
 
-                        <div class="input-field">
-                            <label>CONTRASEÑA</label>
-                            <input type="password"  placeholder="Crea una contraseña" required id="password">
-                        </div>
+				<!-- Grupo: Número telefónico -->
+				<div class="formulario__grupo" id="grupo__telefono">
+					<label for="telefono" class="formulario__label-telefono">NÚMERO TELEFÓNICO</label>
+					<div class="formulario__grupo-input-telefono">
+						<select class="formulario__select_cedula" required id="codetelefono" onchange="">
+							<option value="" disabled selected></option>
+							<option value="+58">+58</option> 
+							<option value="+57">+57</option>
+							<option value="+56">+56</option>
+						</select>
+						<input type="text" class="formulario__input_telefono" name="telefono" id="telefono" placeholder="Ingresa tu número telefónico" required>
+						<i class="formulario__validacion-estado fas fa-times-circle"></i>
+					</div>
+					<p class="formulario__input-error">El teléfono solo puede números y puede contener máximo 11 dígitos <br> Ej: 424-6992967</p>
+				</div>
 
-                        <div class="input-field">
-                            <label>CIUDAD</label>
-                            <input type="text" placeholder="Ingresa tu ciudad" required>
-                        </div>
-                        
-                        <div class="input-field">
-                            <label>GÉNERO</label>
-                            <select required>
-                                <option disabled selected>Selecciona tu nacionalidad</option>
-                                <option>Masculino</option>
-                                <option>Femenino</option>
-                                <option>Prefiero no especificar</option>
-                            </select>
-                        </div>
 
-                        <div class="input-field">
-                            <label>CONFIRMAR CONTRASEÑA</label>
-                            <input type="password"  placeholder="Confirma la contraseña" required>
-                        </div>
+				<!-- Grupo: Contraseña -->
+				<div class="formulario__grupo" id="grupo__password">
+					<label for="password" class="formulario__label">CONTRASEÑA</label>
+					<div class="formulario__grupo-input">
+						<input type="password" class="formulario__input" name="password" id="password" placeholder="Crea una contraseña" required>
+						<i class="formulario__validacion-estado fas fa-times-circle"></i>
+					</div>
+					<p class="formulario__input-error">La contraseña tiene que ser de 8 a 20 dígitos.</p>
+				</div>
 
-                        <div class="input-field">
-                            <label>FECHA DE NACIMIENTO</label>
-                            <input type="date" placeholder="Ingresa tu fecha de nacimiento" required>
-                        </div>
+				<!-- Grupo: Ciudad -->
+				<div class="formulario__grupo" id="grupo__ciudad">
+					<label for="ciudad" class="formulario__label">CIUDAD</label>
+					<div class="formulario__grupo-input">
+						<input type="text" class="formulario__input" name="ciudad" id="ciudad" placeholder="Ingresa tu ciudad" required>
+						<i class="formulario__validacion-estado fas fa-times-circle"></i>
+					</div>
+					<p class="formulario__input-error">La ciudad no puede tener más de 20 carácteres, y sólo puede contener letras.</p>
+				</div>
 
-                        <button class="nextBtn" type="submit">
-                            <span class="btnText">SIGUIENTE</span>
-                            <i class="uil uil-navigator"></i>
-                        </button>
-                    </div>
-                </div>
+				<!-- Grupo: Género -->
+				<div class="formulario__grupo" id="genero">
+					<label for="genero" class="formulario__label">GÉNERO</label>
+					<div class="formulario__grupo-select">
+						<select required class="formulario__select" id="gender" onchange="">
+							<option value="" disabled selected>Selecciona tu género</option>
+							<option value="M">Masculino</option>
+							<option value="F">Femenino</option>
+							<option value="Prefiero no especificar">Prefiero no especificar</option>
+						</select>
+					</div>
+				</div>
 
-            </div>
-        </form>
+				<!-- Grupo: Contraseña 2 -->
+				<div class="formulario__grupo" id="grupo__password2">
+					<label for="password2" class="formulario__label">CONFIRMAR CONTRASEÑA</label>
+					<div class="formulario__grupo-input">
+						<input type="password" class="formulario__input" name="password2" id="password2" placeholder="Confirma tu contraseña" required>
+						<i class="formulario__validacion-estado fas fa-times-circle"></i>
+					</div>
+					<p class="formulario__input-error">Ambas contraseñas deben ser iguales.</p>
+				</div>
 
-        <div class="alert alert-danger" role="alert" id="error" style="display: none;"></div>
-            
-        <div class="alert alert-success" role="alert" id="success" style="display: none;"></div>
-        
-    </div>
+				<!-- Grupo: Fecha de nacimiento -->
+				<div class="formulario__grupo" id="grupo__fnacimiento">
+					<label for="fnacimiento" class="formulario__label">FECHA DE NACIMIENTO</label>
+					<span class="formulario__grupo-input" data-hover="Debes de ser mayor de 18 años para poder registrarte.">
+						<input type="date" class="formulario__input" name="fnacimiento" id="fnacimiento" min="1922-01-01" max="2004-12-31" placeholder="Ingresa tu fecha de nacimiento" required>
+						<i class="formulario__validacion-estado fas fa-times-circle"></i>
+					</span>
+					<p class="formulario__input-error">La fecha de nacimiento no puede ser mayor a la fecha actual.</p>
+				</div>
 
-  <div
-    class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
-  </div>
+				<div class="formulario__grupo formulario__grupo-btn-enviar">
+					<button type="submit" id="btn" class="formulario__btn">SIGUIENTE</button>
+				</div>
+			</form>
 
-  <header class="hero">
-    <div class="hero__wave" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
-      style="height: 100%; width: 100%;">
-      <path d="M0.00,49.99 C150.00,150.00 349.20,-49.99 500.00,49.99 L500.00,150.00 L0.00,150.00 Z"
-      style="stroke: none; fill: #05113e;"></path>
-      </svg>
-    </div>
-  </header>
+            <div class="alert alert-danger" role="alert" id="error" style="display: none;"></div>
 
-  <main>
+            <div class="alert alert-success" role="alert" id="success" style="display: none;"></div>
+               
 
-  </main>
+			<!-- <div class="formulario__mensaje" id="formulario__mensaje">
+				<p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente.</p>
+			</div> -->
 
-  
-  <script src="js/register.js"></script>
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <script src="https://kit.fontawesome.com/f13e65e247.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+		</div>
+
+		<div
+			class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
+		</div>
+
+	</main>
+
+	<script src="js/script.js"></script>
+    <script src="js/register.js"></script>
+	<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
-
 </html>

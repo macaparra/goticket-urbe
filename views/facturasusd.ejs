@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="img/ticket.png" rel="icon">
+        <link href="css/normalize.css" rel="stylesheet"/>
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+        <link href="https://cdn.datatables.net/1.12.0/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+        <script src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"></script>
+
+        <script src="https://cdn.datatables.net/1.12.0/js/dataTables.bootstrap5.min.js"></script>
+
+
+        <title>GoTicket- Facturas $</title>
+        
+    </head>
+    <body style="background-image: url(img/banner02.jpg);background-size: cover;">
+        
+        <div class="container">
+            <h1 class="mt-4 mb-4 text-center text-primary" ><b style="color: #31d7a9;">Datos de Facturas en $</b></h1>
+
+            <span id="error" style="display: none;"></span>
+            <span id="success" style="display: none;"></span>
+            <span id="message"></span>
+            <!-- <div class="alert alert-danger" role="alert" id="error" style="display: none;"></div>
+            <div class="alert alert-success" role="alert" id="success" style="display: none;"></div> -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col col-sm-9">DATOS DE TUS FACTURAS EN $</div>
+                        <div class="col col-sm-3">
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered" id="cliente">
+                            <thead>
+                                <tr>
+                                    <th>Referencia</th>
+                                    <th>Ubicación</th>
+                                    <th>Cantidad de Asientos</th>
+                                    <th>Monto de la Compra en $</th>
+                                    <th>Nombre del Evento</th>
+                                    <th>Fecha de la Compra</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+
+<div>
+    <a href="/clientes"><img src="img/logo.png" style="margin: auto; display: block; width: 200px; margin-top: 10px; margin-bottom: 20px; padding-top: 20px;" alt=""></a>
+</div>
+
+<div class="modal" tabindex="-1" id="action_modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="post" id="eventos">
+                <div class="modal-header" id="dynamic_modal_title">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Título</label>
+                        <input type="text" name="titulo_evento" id="titulo_evento" class="form-control" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Categoría</label>
+                        <select name="categoria" id="categoria" class="form-control" required>
+                            <option value="" disabled selected>Selecciona la Categoría</option>
+							<option value="Musica">Musica</option> 
+							<option value="Deporte">Deporte</option>
+                            <option value="Conferencia">Conferencia</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Cantidad de asientos</label>
+                        <input type="number" name="cantidad_asientos" id="cantidad_asientos" class="form-control" required />
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Ubicación</label>
+                        <input type="text"  name="ubicacion" id="ubicacion" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Hora</label>
+                        <input type="time" name="hora" id="hora" class="form-control" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Fecha</label>
+                        <input type="date"  name="fecha_evento" id="fecha_evento" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Precio</label>
+                        <input type="number" name="precio" id="precio" class="form-control" required />
+                    </div>
+                <div class="modal-footer">
+                    <input type="hidden" name="id" id="id" />
+                    <input type="hidden" name="action" id="action" value="Agregar" />
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary" id="action_button">Agregar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script>
+
+$(document).ready(function(){
+
+    load_data();
+
+    function load_data()
+    {
+        $.ajax({
+            url:"http://localhost:4000/facturasusd/action",
+            method:"POST",
+            data:{action:'fetch'},
+            dataType : "JSON",
+            success:function(data)
+            {
+                var html = '';
+
+                if(data.data.length > 0)
+                {
+                    for(var count = 0; count < data.data.length; count++)
+                    {
+                        html += `
+                        <tr>
+                            <td>`+data.data[count].referencia+`</td>
+                            <td>`+data.data[count].ubicacionz+`</td>
+                            <td>`+data.data[count].cantidad_asientosz+`</td>
+                            <td>`+data.data[count].monto+`</td>
+                            <td>`+data.data[count].sevento+`</td>
+                            <td>`+data.data[count].fecha_compra+`</td>
+                          
+                        </tr>
+                        </tr>
+                        `;
+                    }
+                }
+
+                $('#cliente tbody').html(html);
+            }
+        });
+    }
+
+    $('#add_data').click(function(){
+
+        $('#dynamic_modal_title').text('Agregar Datos');
+
+        $('#eventos')[0].reset();
+
+        $('#action').val('Agregar');
+
+        $('#action_button').text('Agregar');
+
+        $('#action_modal').modal('show');
+
+        $('#password').attr('disabled', false); //!!
+
+    });
+
+     $('#eventos').on('submit', function(event){
+
+        event.preventDefault();
+
+        $.ajax({
+            url:"http://localhost:4000/facturasusd/action",
+            method:"POST",
+            data:$('#eventos').serialize(),
+            dataType:"JSON",
+            beforeSend:function(){
+                $('#action_button').attr('disabled', 'disabled');
+            },
+            success:function(data)
+            {
+                $('#action_button').attr('disabled', false);
+                
+                if(data.status == "error") {
+                    success.style.display = "none"
+                    error.style.display = "block"
+                    error.innerText = data.error
+                    $('#error').html('<div class="alert alert-danger">'+data.error+'</div>');
+                } else{
+                    error.style.display = "none"
+                    success.style.display = "block"
+                    success.innerText = data.success
+                    $('#success').html('<div class="alert alert-success">'+data.success+'</div>');
+                    // estado = true;
+                }
+
+                $('#action_modal').modal('hide');
+                
+                load_data();
+
+                setTimeout(function(){
+                    $('#success').html('');
+                    $('#error').html('');
+                }, 5000);
+            }
+        });
+
+    });
+
+    $(document).on('click', '.edit', function(){
+
+        const id = $(this).data('id');
+
+        $('#dynamic_modal_title').text('Editar Data');
+
+        $('#action').val('Editar');
+
+        $('#action_button').text('Editar');
+
+        $('#action_modal').modal('show');
+
+        $('#password').attr('disabled', 'disabled'); //!!
+
+        $.ajax({
+            url:"http://localhost:4000/facturasusd/action",
+            method:"POST",
+            data:{id:id, action:'fetch_single'},
+            dataType:"JSON",
+            success:function(data)
+            {
+                $('#titulo_evento').val(data.titulo_evento);
+                $('#categoria').val(data.categoria);
+                $('#cantidad_asientos').val(data.cantidad_asientos);
+                $('#ubicacion').val(data.ubicacion);
+                $('#hora').val(data.hora);
+                $('#fecha_evento').val(data.fecha_evento);
+                $('#precio').val(data.precio);
+                $('#id').val(data.id);
+            }
+        });
+
+    });
+
+    $(document).on('click', '.delete', function(){
+
+        const id = $(this).data('id');
+
+        if(confirm("Estas seguro que deseas eliminar este registro?"))
+        {
+            $.ajax({
+                url:"http://localhost:4000/eventos/action",
+                method:"POST",
+                data:{action:'delete', id:id},
+                dataType:"JSON",
+                success:function(data)
+                {
+                    $('#message').html('<div class="alert alert-success">'+data.message+'</div>');
+                    load_data();
+                    setTimeout(function(){
+                        $('#message').html('');
+                    }, 5000);
+                }
+            });
+        }
+
+    });
+
+});
+
+</script>

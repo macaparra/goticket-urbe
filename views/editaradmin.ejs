@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="img/ticket.png" rel="icon">
+        <link href="css/normalize.css" rel="stylesheet"/>
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+        <link href="https://cdn.datatables.net/1.12.0/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+        <script src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"></script>
+
+        <script src="https://cdn.datatables.net/1.12.0/js/dataTables.bootstrap5.min.js"></script>
+
+
+        <title>GoTicketAdmin- Administradores</title>
+        
+    </head>
+    <body style="background-image: url(img/banner02.jpg);background-size: cover;">
+        
+        <div class="container">
+            <h1 class="mt-4 mb-4 text-center text-primary" ><b style="color: #31d7a9;">Datos de Administradores</b></h1>
+
+            <span id="error" style="display: none;"></span>
+            <span id="success" style="display: none;"></span>
+            <span id="message"></span>
+            <!-- <div class="alert alert-danger" role="alert" id="error" style="display: none;"></div>
+            <div class="alert alert-success" role="alert" id="success" style="display: none;"></div> -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col col-sm-9">DATOS DE ADMINISTRADORES REGISTRADOS</div>
+                        <div class="col col-sm-3">
+                            <button type="button" id="add_data" class="btn btn-success btn-sm float-end">Agregar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered" id="cliente">
+                            <thead>
+                                <tr>
+                                    <th>Nombre de Usuario</th>
+                                    <th>Cédula</th>
+                                    <th>Fecha de Nacimiento</th>
+                                    <th>Telefono</th>
+                                    <th>Email</th>
+                                    <th>Contraseña</th>
+                                    <th>Acción</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+<div class="modal" tabindex="-1" id="action_modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="post" id="editaradmin">
+                <div class="modal-header" id="dynamic_modal_title">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Nombre de usuario</label>
+                        <input type="text" name="nombre_usuario_adm" id="nombre_usuario_adm" class="form-control" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Cedula</label>
+                        <input type="text" name="cedula_adm" id="cedula_adm" class="form-control" required />
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Fecha de Nacimiento</label>
+                        <input type="date" name="fecha_nacimiento_adm" id="fecha_nacimiento_adm" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Telefono</label>
+                        <input type="text" name="telefono_adm" id="telefono_adm" class="form-control" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" name="email" id="email" class="form-control" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Contraseña</label>
+                        <input type="password" name="password" id="password" class="form-control" required />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" name="id" id="id" />
+                    <input type="hidden" name="action" id="action" value="Agregar" />
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary" id="action_button">Agregar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a href="/admin"><img src="img/logo.png" style="margin: auto; display: block; width: 200px; margin-top: 10px; margin-bottom: 20px; padding-top: 20px;" alt=""></a>
+</div>
+
+
+
+<script>
+
+$(document).ready(function(){
+
+    load_data();
+
+    function load_data()
+    {
+        $.ajax({
+            url:"http://localhost:4000/editaradmin/action",
+            method:"POST",
+            data:{action:'fetch'},
+            dataType : "JSON",
+            success:function(data)
+            {
+                var html = '';
+
+                if(data.data.length > 0)
+                {
+                    for(var count = 0; count < data.data.length; count++)
+                    {
+                        html += `
+                        <tr>
+                            <td>`+data.data[count].nombre_usuario_adm+`</td>
+                            <td>`+data.data[count].cedula_adm+`</td>
+                            <td>`+data.data[count].fecha_nacimiento_adm+`</td>
+                            <td>`+data.data[count].telefono_adm+`</td>
+                            <td>`+data.data[count].email+`</td>
+                            <td>`+data.data[count].password+`</td>
+                            <td><button type="button" class="btn btn-warning btn-sm edit" data-id="`+data.data[count].id+`">Editar</button><button type="button" class="btn btn-danger btn-sm delete" data-id="`+data.data[count].id+`">Eliminar</button></td>
+                        </tr>
+                        </tr>
+                        `;
+                    }
+                }
+
+                $('#cliente tbody').html(html);
+            }
+        });
+    }
+
+    $('#add_data').click(function(){
+
+        $('#dynamic_modal_title').text('Agregar Datos');
+
+        $('#editaradmin')[0].reset();
+
+        $('#action').val('Agregar');
+
+        $('#action_button').text('Agregar');
+
+        $('#action_modal').modal('show');
+
+        $('#password').attr('disabled', false); //!!
+
+    });
+
+     $('#editaradmin').on('submit', function(event){
+
+        event.preventDefault();
+
+        $.ajax({
+            url:"http://localhost:4000/editaradmin/action",
+            method:"POST",
+            data:$('#editaradmin').serialize(),
+            dataType:"JSON",
+            beforeSend:function(){
+                $('#action_button').attr('disabled', 'disabled');
+            },
+            success:function(data)
+            {
+                $('#action_button').attr('disabled', false);
+                
+                if(data.status == "error") {
+                    success.style.display = "none"
+                    error.style.display = "block"
+                    error.innerText = data.error
+                    $('#error').html('<div class="alert alert-danger">'+data.error+'</div>');
+                } else{
+                    error.style.display = "none"
+                    success.style.display = "block"
+                    success.innerText = data.success
+                    $('#success').html('<div class="alert alert-success">'+data.success+'</div>');
+                    // estado = true;
+                }
+
+                $('#action_modal').modal('hide');
+                
+                load_data();
+
+                setTimeout(function(){
+                    $('#success').html('');
+                    $('#error').html('');
+                }, 5000);
+            }
+        });
+
+    });
+
+    $(document).on('click', '.edit', function(){
+
+        const id = $(this).data('id');
+
+        $('#dynamic_modal_title').text('Editar Data');
+
+        $('#action').val('Editar');
+
+        $('#action_button').text('Editar');
+
+        $('#action_modal').modal('show');
+
+        $('#password').attr('disabled', 'disabled'); //!!
+
+        $.ajax({
+            url:"http://localhost:4000/editaradmin/action",
+            method:"POST",
+            data:{id:id, action:'fetch_single'},
+            dataType:"JSON",
+            success:function(data)
+            {
+                $('#nombre_usuario_adm').val(data.nombre_usuario_adm);
+                $('#cedula_adm').val(data.cedula_adm);
+                $('#fecha_nacimiento_adm').val(data.fecha_nacimiento_adm);
+                $('#telefono_adm').val(data.telefono_adm);
+                $('#email').val(data.email);
+                //$('#password').val(data.password);
+                $('#id').val(data.id);
+            }
+        });
+
+    });
+
+    $(document).on('click', '.delete', function(){
+
+        const id = $(this).data('id');
+
+        if(confirm("Estas seguro que deseas eliminar este registro?"))
+        {
+            $.ajax({
+                url:"http://localhost:4000/editaradmin/action",
+                method:"POST",
+                data:{action:'delete', id:id},
+                dataType:"JSON",
+                success:function(data)
+                {
+                    $('#message').html('<div class="alert alert-success">'+data.message+'</div>');
+                    load_data();
+                    setTimeout(function(){
+                        $('#message').html('');
+                    }, 5000);
+                }
+            });
+        }
+
+    });
+
+});
+
+</script>
