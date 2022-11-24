@@ -202,7 +202,7 @@ const validarCampo = (expresion, input, campo) => {
 	}
 	
 	
-	if(inputPassword1.value !== inputPassword2.value){
+	if(inputPassword1&&inputPassword2&&(inputPassword1.value !== inputPassword2.value)){
 		document.getElementById(`grupo__password2`).classList.add('formulario__grupo-incorrecto');
 		document.getElementById(`grupo__password2`).classList.remove('formulario__grupo-correcto');
 		document.querySelector(`#grupo__password2 i`).classList.add('fa-times-circle');

@@ -15,6 +15,7 @@ const comprapmovil = async (req, res) =>{
     const {sevento} = req.body;
     const{monto} = req.body;
     
+    console.log('test');
     // Validación Correo
     db.query('SELECT * FROM cliente WHERE email = ?', [email], async (err5, result5) => {
         if (err5) throw err5;
