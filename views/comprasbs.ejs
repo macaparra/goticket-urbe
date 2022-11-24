@@ -56,7 +56,6 @@
                                     <th>Cantidad de Asientos</th>
                                     <th>Monto de la Compra en BS</th>
                                     <th>Nombre del Evento</th>
-                                    <th>Fecha de la Compra</th>
                                 </tr>
                             </thead>
                             <tbody></tbody>
@@ -110,10 +109,6 @@
                         <input type="time" name="hora" id="hora" class="form-control" required />
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Fecha</label>
-                        <input type="date"  name="fecha_evento" id="fecha_evento" class="form-control" required>
-                    </div>
-                    <div class="mb-3">
                         <label class="form-label">Precio</label>
                         <input type="number" name="precio" id="precio" class="form-control" required />
                     </div>
@@ -164,9 +159,7 @@ $(document).ready(function(){
                             <td>`+data.data[count].ubicacion+`</td>
                             <td>`+data.data[count].cantidad_asientos+`</td>
                             <td>`+data.data[count].monto+`</td>
-                            <td>`+data.data[count].sevento+`</td>
-
-                          
+                            <td>`+data.data[count].sevento+`</td>                          
                         </tr>
                         </tr>
                         `;

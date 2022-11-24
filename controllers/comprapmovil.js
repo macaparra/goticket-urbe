@@ -21,7 +21,7 @@ const comprapmovil = async (req, res) =>{
         if (err5) throw err5;
         if(!result5.length) return res.json({ status: "error", error: "Este no es su email" })
          else{
-            db.query('INSERT INTO comprapm SET ?', { email: email, cedula: cedula, codetelefono: codetelefono,telefono: telefono , ncedula: ncedula, banco: banco, ubicacion: ubicacion, cantidad_asientos: cantidad_asientos, monto: monto, sevento: sevento}, async (error, results) => {
+            db.query('INSERT INTO comprapm SET ?', { email: email, cedula: cedula, codetelefono: codetelefono,telefono: telefono , ncedula: ncedula, banco: banco, ubicacion: ubicacion, cantidad_asientos: cantidad_asientos, monto: monto, sevento: sevento, fecha_compra: new Date()}, async (error, results) => {
                 db.query('INSERT INTO facturasbs SET ?',{ banco: banco, ubicacion: ubicacion, cantidad_asientos: cantidad_asientos, monto: monto, sevento: sevento}, async(error2, results2)=>{
                     const token = jwt.sign( {id: result5[0].id} , process.env.JWT_SECRET , {
                         expiresIn: '10m',

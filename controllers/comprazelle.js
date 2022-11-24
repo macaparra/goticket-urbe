@@ -19,7 +19,7 @@ const comprazelle = async (req, res) =>{
         if(!result5.length) return res.json({ status: "error", error: "Este no es su email" })
 
         else{
-            db.query('INSERT INTO compraz SET ?', { email: email, referencia: referencia, ubicacionz: ubicacionz, cantidad_asientosz: cantidad_asientosz, monto: monto, titular_cuenta: titular_cuenta, sevento: sevento}, async (error, results) => { 
+            db.query('INSERT INTO compraz SET ?', { email: email, referencia: referencia, ubicacionz: ubicacionz, cantidad_asientoz: cantidad_asientosz, monto: monto, titular_cuenta: titular_cuenta, sevento: sevento}, async (error, results) => { 
                 db.query('INSERT INTO facturasusd SET ?', { ubicacionz: ubicacionz, cantidad_asientosz: cantidad_asientosz, monto: monto, sevento: sevento, referencia: referencia}, async (error2, results2) =>{
                     const token = jwt.sign( {id: result5[0].id} , process.env.JWT_SECRET , {
                         expiresIn: '10m',
